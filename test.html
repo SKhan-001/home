@@ -18,31 +18,54 @@
                 text-align: center;
                 background-color: #FFFFFF;
             }
-            th {
-                border: 3px double red;
-                padding: 3px;
+
+            th, td{
                 text-align: center;
                 width : 250px;
+            }
+            th {
+                border: 2px solid red;
+                outline: 2px solid red;
+                outline-offset: -4px;
+                /* box-shadow: inset 0 0 0 3px black; */
+                padding: 3px;                
             }
 
             td {
-                border: 1px solid #000000;
-                padding: 8px;
-                text-align: center;
-                width : 250px;
+                border: 1px solid black;
+                padding: 3px;
+            }
+
+            td.meal-label{
+                border: 2px solid purple;
+                outline: 2px solid purple;
+                outline-offset: -4px;
+            }
+
+            th:first-child, td:first-child {
+                width: 50px;
             }
 
             .main {
-                text-align: center;
                 background-color: skyblue;
             }
             .smain {
-                text-align: center;
                 background-color: rgb(242,220,219);            
             }
             .sdish {
-                text-align: center;
                 background-color: rgb(215,228,189);
+            }
+            .bsd1::after{
+                content: "제철야채겉절이";       
+            }
+            .bsd2::after{
+                content: "가든샐러드/드레싱";              
+            }
+            .bsd3::after{
+                content: "포기김치";              
+            }
+            .bsd4::after{
+                content: "셀프비빔밥&후식";              
             }
 
         </style>
@@ -51,7 +74,7 @@
         <table>
             <thead>
                 <tr>
-                    <th> 2025년 </th>
+                    <th style="font-size: 12px"> 2025년 </th>
                     <th> 4월 28일 </th>
                     <th> 4월 29일 </th>
                     <th> 4월 30일 </th>
@@ -60,9 +83,93 @@
                 </tr>     
             </thead>
             <tbody>
+                <tr>
+                    <td class="meal-label" rowspan="10">중<br>식</td>
+                    <td>백미밥/잡곡밥</td>
+                    <td>백미밥/잡곡밥</td>
+                    <td>백미밥/잡곡밥</td>
+                    <td rowspan="10"><b>휴무</b></td>
+                    <td>콩나물버섯영양밥/잡곡밥</td>
+                </tr>
+                <tr class="main">                    
+                    <td>묵은지돈찜</td>
+                    <td>고추찜닭</td>
+                    <td>깻잎제육두루치기</td>
+                    <td>버섯우불고기</td>
+                </tr>
+                <tr class="smain">                    
+                    <td>깐풍기</td>
+                    <td>수제고구마/단호박튀김</td>
+                    <td>치킨치즈고로케</td>
+                    <td>피쉬커틀렛</td>
+                </tr>
+                <tr class="sdish">                    
+                    <td>두부구이</td>
+                    <td>미나리전</td>
+                    <td>감자조림</td>
+                    <td>오징어콩나물찜</td>
+                </tr>
+                <tr>                    
+                    <td>소고기미역국</td>
+                    <td>유부어묵국</td>
+                    <td>유부어묵국</td>
+                    <td>명동칼국수</td>
+                </tr>
+                <tr>                    
+                    <td>표고버섯볶음</td>
+                    <td>불닭떡볶이</td>
+                    <td>한식잡채</td>
+                    <td>견과류멸치볶음</td>
+                </tr>
+                <tr>                    
+                    <td>비빔냉면</td>
+                    <td>삼색계란찜</td>
+                    <td>콩나물맛살냉채</td>
+                    <td>김치전</td>
+                </tr>
+                <tr>                    
+                    <td class="bsd1"></td>
+                    <td class="bsd1"></td>
+                    <td class="bsd1"></td>
+                    <td class="bsd1"></td>
+                </tr>
+                <tr>                    
+                    <td class="bsd2"></td>
+                    <td class="bsd2"></td>
+                    <td class="bsd2"></td>
+                    <td class="bsd2"></td>
+                </tr>
+                <tr>                    
+                    <td class="bsd3"></td>
+                    <td class="bsd3"></td>
+                    <td class="bsd3"></td>
+                    <td class="bsd3"></td>
+                </tr>                
+                <tr>
+                    <td></td>
+                    <td class="bsd4"></td>
+                    <td class="bsd4"></td>
+                    <td class="bsd4"></td>
+                    <td><b>휴무</b></td>
+                    <td class="bsd4"></td>
+                </tr>
+                <tr>                    
+                    <td rowspan="10">석<br>식</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td rowspan="10"><b>휴무</b></td>
+                    <td></td>
+                </tr>
 
             </tbody>
         </table>
+        
+        
+        
+        <br><br><br><br><br><br><br><br>
+
+    <img src="./식단표.png" alt="식단표">
         <footer>
             <p> &copy; 2025. All rights reserved. </p>
         </footer>
