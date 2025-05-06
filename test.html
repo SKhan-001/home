@@ -2,6 +2,7 @@
 <html lang="ko">
     <head>
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title> 식단표 테이블 만들기 </title>
         <style>
             table {
@@ -22,28 +23,30 @@
             th, td{
                 text-align: center;
                 width : 250px;
+                padding: 3px; 
             }
             th {
+                position: relative;
+                z-index: 1;
                 border: 2px solid red;
                 outline: 2px solid red;
-                outline-offset: -4px;
-                /* box-shadow: inset 0 0 0 3px black; */
-                padding: 3px;                
+                outline-offset: -4px;             
             }
 
             td {
-                border: 1px solid black;
-                padding: 3px;
-            }
-
-            td.meal-label{
+                position: relative;
+                z-index: 2;
                 border: 2px solid purple;
                 outline: 2px solid purple;
                 outline-offset: -4px;
             }
+            td > div{
+                padding: 3px;                
+            }
 
+                       
             th:first-child, td:first-child {
-                width: 50px;
+                width: 40px;
             }
 
             .main {
@@ -56,7 +59,9 @@
                 background-color: rgb(215,228,189);
             }
             .bsd1::after{
-                content: "제철야채겉절이";       
+                
+                content: "제철야채겉절이";
+                
             }
             .bsd2::after{
                 content: "가든샐러드/드레싱";              
@@ -66,6 +71,50 @@
             }
             .bsd4::after{
                 content: "셀프비빔밥&후식";              
+            }
+            .bsd5::after{
+                content: "생채소겉절이";              
+            }
+            @media (max-width: 768px) {
+                table {
+                width: 100%;
+                font-size: 13px;
+                overflow-x: auto;
+                display: block;
+                white-space: nowrap;
+                }
+
+                th, td {
+                    width: 180px;
+                    padding: 4px;
+                }
+
+                .meal-label {
+                    font-size: 12px;
+                }
+
+                body {
+                    padding: 0 10px;
+                }
+            }
+            @media (max-width: 480px) {
+                table {
+                    font-size: 12px;
+                }
+
+                th, td {
+                    width: 140px;
+                    padding: 2px;
+                }
+
+                td > div {
+                    padding: 2px;
+                    font-size: 11px;
+                }
+
+                .meal-label {
+                    font-size: 11px;
+                }
             }
 
         </style>
@@ -84,82 +133,124 @@
             </thead>
             <tbody>
                 <tr>
-                    <td class="meal-label" rowspan="10">중<br>식</td>
-                    <td>백미밥/잡곡밥</td>
-                    <td>백미밥/잡곡밥</td>
-                    <td>백미밥/잡곡밥</td>
-                    <td rowspan="10"><b>휴무</b></td>
-                    <td>콩나물버섯영양밥/잡곡밥</td>
-                </tr>
-                <tr class="main">                    
-                    <td>묵은지돈찜</td>
-                    <td>고추찜닭</td>
-                    <td>깻잎제육두루치기</td>
-                    <td>버섯우불고기</td>
-                </tr>
-                <tr class="smain">                    
-                    <td>깐풍기</td>
-                    <td>수제고구마/단호박튀김</td>
-                    <td>치킨치즈고로케</td>
-                    <td>피쉬커틀렛</td>
-                </tr>
-                <tr class="sdish">                    
-                    <td>두부구이</td>
-                    <td>미나리전</td>
-                    <td>감자조림</td>
-                    <td>오징어콩나물찜</td>
-                </tr>
-                <tr>                    
-                    <td>소고기미역국</td>
-                    <td>유부어묵국</td>
-                    <td>유부어묵국</td>
-                    <td>명동칼국수</td>
-                </tr>
-                <tr>                    
-                    <td>표고버섯볶음</td>
-                    <td>불닭떡볶이</td>
-                    <td>한식잡채</td>
-                    <td>견과류멸치볶음</td>
-                </tr>
-                <tr>                    
-                    <td>비빔냉면</td>
-                    <td>삼색계란찜</td>
-                    <td>콩나물맛살냉채</td>
-                    <td>김치전</td>
-                </tr>
-                <tr>                    
-                    <td class="bsd1"></td>
-                    <td class="bsd1"></td>
-                    <td class="bsd1"></td>
-                    <td class="bsd1"></td>
-                </tr>
-                <tr>                    
-                    <td class="bsd2"></td>
-                    <td class="bsd2"></td>
-                    <td class="bsd2"></td>
-                    <td class="bsd2"></td>
-                </tr>
-                <tr>                    
-                    <td class="bsd3"></td>
-                    <td class="bsd3"></td>
-                    <td class="bsd3"></td>
-                    <td class="bsd3"></td>
-                </tr>                
+                    <td>중<br>식</td>
+                    <td> 
+                        <div>백미밥/잡곡밥</div>
+                        <div class="main">묵은지돈찜</div>
+                        <div class="smain">깐풍기</div>
+                        <div class="sdish">두부구이</div>
+                        <div>소고기미역국</div>
+                        <div>표고버섯볶음</div>
+                        <div>비빔냉면</div>
+                        <div class="bsd1"></div>
+                        <div class="bsd2"></div>
+                        <div class="bsd3"></div>                        
+                    </td>
+                    <td> 
+                        <div>백미밥/잡곡밥</div>
+                        <div class="main">고추찜닭</div>
+                        <div class="smain">수제고구마/단호박튀김</div>
+                        <div class="sdish">미나리전</div>
+                        <div>유부어묵국</div>
+                        <div>불닭떡볶이</div>
+                        <div>삼색계란찜</div>
+                        <div class="bsd1"></div>
+                        <div class="bsd2"></div>
+                        <div class="bsd3"></div>
+                    </td>
+                    <td> 
+                        <div>백미밥/잡곡밥</div>
+                        <div class="main">깻잎제육두루치기</div>
+                        <div class="smain">치킨치즈고로케</div>
+                        <div class="sdish">감자조림</div>
+                        <div>유부어묵국</div>
+                        <div>한식잡채</div>
+                        <div>콩나물맛살냉채</div>
+                        <div class="bsd1"></div>
+                        <div class="bsd2"></div>
+                        <div class="bsd3"></div>
+                    </td>
+                    <td><b>휴무</b></td>
+                    <td>
+                        <div>콩나물버섯영양밥/잡곡밥</div>
+                        <div class="main">버섯우불고기</div>
+                        <div class="smain">피쉬커틀렛</div>
+                        <div class="sdish">오징어콩나물찜</div>
+                        <div>명동칼국수</div>
+                        <div>견과류멸치볶음</div>
+                        <div>김치전</div>
+                        <div class="bsd1"></div>
+                        <div class="bsd2"></div>
+                        <div class="bsd3"></div>
+                    </td>
+                </tr>                    
                 <tr>
                     <td></td>
-                    <td class="bsd4"></td>
-                    <td class="bsd4"></td>
-                    <td class="bsd4"></td>
+                    <td>
+                        <div class="bsd4"></div>
+                    </td>
+                    <td>
+                        <div class="bsd4"></div>
+                    </td>
+                    <td>
+                        <div class="bsd4"></div>
+                    </td>
                     <td><b>휴무</b></td>
-                    <td class="bsd4"></td>
+                    <td>
+                        <div class="bsd4"></div>
+                    </td>
                 </tr>
                 <tr>                    
-                    <td rowspan="10">석<br>식</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td rowspan="10"><b>휴무</b></td>
-                    <td></td>
+                    <td>석<br>식</td>
+                    <td>
+                        <div>백미밥/잡곡밥</div>
+                        <div class="main">후르츠탕수육</div>
+                        <div class="smain">오리두루치기</div>
+                        <div class="sdish">손만두찜</div>
+                        <div>고추장찌개</div>
+                        <div>청포묵김가루무침</div>
+                        <div>춘천막국수</div>
+                        <div class="bsd5"></div>
+                        <div class="bsd3"></div>
+                        <div class="bsd2"></div>
+                    </td>
+                    <td>
+                        <div>백미밥/잡곡밥</div>
+                        <div class="main">갈비양념불고기</div>
+                        <div class="smain">일식가쯔동</div>
+                        <div class="sdish">에그샌드</div>
+                        <div>얼큰우거지된장국</div>
+                        <div>메추리알새송이버섯조림</div>
+                        <div>골빔면</div>
+                        <div class="bsd5"></div>
+                        <div class="bsd3"></div>
+                        <div class="bsd2"></div>
+                    </td>
+                    <td>
+                        <div>백미밥/잡곡밥</div>
+                        <div class="main">순살치킨청양매운맛소스</div>
+                        <div class="smain">고추잡채&꽃빵</div>
+                        <div class="sdish">고구마치즈그라탕</div>
+                        <div>북어해장국</div>
+                        <div>어묵볶음</div>
+                        <div>숙주나물</div>
+                        <div class="bsd5"></div>
+                        <div class="bsd3"></div>
+                        <div class="bsd2"></div>
+                    </td>
+                    <td><b>휴무</b></td>
+                    <td>
+                        <div>백미밥/잡곡밥</div>
+                        <div class="main">꽈리고추묵은지불고기</div>
+                        <div class="smain">오징어볼</div>
+                        <div class="sdish">계란말이</div>
+                        <div>얼큰짬뽕수제비</div>
+                        <div>새송이볶음</div>
+                        <div>오징어젓갈무무침</div>
+                        <div class="bsd5"></div>
+                        <div class="bsd3"></div>
+                        <div class="bsd2"></div>
+                    </td>
                 </tr>
 
             </tbody>
